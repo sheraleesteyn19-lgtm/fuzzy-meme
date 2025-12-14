@@ -1,0 +1,45 @@
+Ruby
+#
+===============================================
+# SAS - The Violet Lily Cipher
+# Author Signature: Sheralee Anne Steyn
+# Meaning:"Where elegance blooms in code"
+#
+===============================================
+
+module SAS
+ class Violetlily
+  def initialize 
+   @essence ={
+    initials:"S A S",
+    theme:"Mysterious ' Techy ' Elegant",
+    color:"Purple",
+    symbol:"Lily",
+    cipher: generate_cipher
+   }
+  end
+
+  # A symbolic cipher based on my initials 
+  def generate_cipher
+   seed ="SAS"
+ seed.bytes.map {|b|(b * 7),to_s(16)}.join("_")
+end
+
+# Returns your digital maker's mark
+def signature
+<<~SIG
+  *Violet Lily Signature*
+ Initials: #{@essence{:initials]}
+ Cipher: #{@essence{:cipher]}
+ ColorEssence: #{@essence{:color]}
+ Symbol: #{@essence{:symbol]}
+ "Where elegance bloom's in code"
+ SIG
+  end
+ end
+end
+
+# To display my signature anywhere:
+# puts SAS::Violetlily.new.signature 
+
+
